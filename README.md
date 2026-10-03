@@ -7,7 +7,7 @@ A Roblox internal script executor — forked from [YuB-X-Public](https://github.
 🚧 **In development** — currently updating for the latest Roblox client.
 
 - [x] Baseline build (FelaryExecutor.dll compiles with v145 toolset)
-- [~] Offsets for `version-02c37bc51a384b8f`: struct offsets + FakeDataModel pointer verified (see `Roblox/Offsets.hpp`); 7 function addresses still STALE, exploit thread parked behind `kOffsetsVerified` guard
+- [~] Offsets for `version-02c37bc51a384b8f`: struct offsets verified; `Luau_Execute` pattern confirmed live; Print stubbed out; exploit thread parked behind `kOffsetsVerified` until GetLuaState/table/RequireBypass land (see `Felary Executor Tools/PatternScanner/OFFSETS.md`)
 - [ ] Injector + injection pipeline
 - [ ] First live execution test
 - [ ] Environment expansion (UNC coverage)
