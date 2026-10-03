@@ -114,6 +114,18 @@ Tool: `Felary Executor Tools/PatternScanner/` (`live_scanner.py` = live process,
 - NEXT: re-run the full suite with a game loaded (yielded threads exist →
   resume chain decrypts). Just join any game and say `scan now`.
 
+## 6. GetScriptContext fix (verified live, in-game)
+
+- YuB-X's `*(*(DM+0x78) + 0x440)` returns GARBAGE on this client
+  (proven: returned `0x288740F4B80` instead of ScriptContext) — it would
+  have crashed or misbehaved on first inject. Replaced with a child-list
+  walk for class `"ScriptContext"` (Khent-proven semantics, capped at
+  20000 entries). Found at child index 68/153 in the test game.
+- `DataModel::ScriptContext = 0x440` is NOT a direct pointer on Player
+  (reads 0 with GameLoaded = 31). Kept as a constant, no longer used.
+- Added `Offsets::Instance::{ClassDescriptor, ClassName}` (0x18/0x8,
+  stable across both dump eras).
+
 ## 6. History
 
 - YuB-X era (`version-ad5d3e2906444472`): all values confirmed against theo's

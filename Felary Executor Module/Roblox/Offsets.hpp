@@ -58,6 +58,13 @@ namespace Offsets
         const uintptr_t FakeDataModelPointer = REBASE(0x8B54980); // [OK] was 0x78FF228
     }
 
+    namespace Instance
+    {
+        // [OK] verified against both RbxDumperV2 eras (unchanged).
+        const uintptr_t ClassDescriptor = 0x18;
+        const uintptr_t ClassName = 0x8;
+    }
+
     namespace ExtraSpace
     {
         // [UNVERIF] dumper reports ScriptContext::RequireBypass as 0x0
