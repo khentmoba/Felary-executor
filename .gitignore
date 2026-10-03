@@ -1,0 +1,23 @@
+# Build outputs
+x64/
+Win32/
+Debug/
+Release/
+*.dll
+*.pdb
+*.ipdb
+*.iobj
+*.tlog
+*.lastbuildstate
+*.recipe
+.vs/
+*.user
+*.aps
+*.ncb
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# OS
+Desktop.ini
+Thumbs.db

@@ -1,10 +1,42 @@
-# YuB-X-Public
-This roblox executor source is a clean v2 of the YuB-X-Low source and is made to learn and use  
-## Included
-- Teleport Handler
-- Stable  
-- 3 sUNC
-- Level 8
-  
-Updated for: version-ad5d3e2906444472  
-Join https://discord.gg/wJCZ6Wy5qN for more
+# Felary Executor
+
+A Roblox internal script executor — forked from [YuB-X-Public](https://github.com/itz-vuxqzo/YuB-X-Public) and developed independently.
+
+## Status
+
+🚧 **In development** — currently updating for the latest Roblox client.
+
+- [x] Baseline build (Module.dll compiles with v145 toolset)
+- [ ] Offsets updated for current client
+- [ ] Injector + injection pipeline
+- [ ] First live execution test
+- [ ] Environment expansion (UNC coverage)
+- [ ] UI rebrand + polish
+
+## Structure
+
+- `YuB-X-Module/` — C++ internal DLL (execution, scheduler, environment, TCP comms)
+- `YuB-X-Interface/` — C# UI (script editor, talks to DLL over `127.0.0.1:6969`)
+
+> Project/directory rename to Felary branding is planned — functionality first.
+
+## Building
+
+Requires Visual Studio with the **v145 toolset** + Windows SDK 10.0.
+
+```powershell
+& "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" `
+  YuB-X-Module/YuB-X-Module.vcxproj -p:Configuration=Release -p:Platform=x64 -m
+```
+
+Output: `YuB-X-Module/x64/Release/Module.dll`
+
+## Base credit
+
+Original source: [itz-vuxqzo/YuB-X-Public](https://github.com/itz-vuxqzo/YuB-X-Public) —
+Teleport handler, stable execution queue, identity 8.
+Upstream: `version-ad5d3e2906444472`.
+
+## Warning
+
+Educational project. Only test on throwaway alts — injecting into live Roblox violates the ToS and will get accounts banned.
