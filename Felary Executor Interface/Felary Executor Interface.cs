@@ -47,11 +47,8 @@ namespace FelaryExecutor_Interface
 
             if (!System.IO.File.Exists(InjectorPath))
             {
-                MessageBox.Show("Press OK to download the injector, this might take a few seconds", "Felary Executor", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                using (var WebClient = new System.Net.WebClient())
-                {
-                    WebClient.DownloadFile("YOUR DOWNLOAD LINK HERE", InjectorPath);
-                }
+                MessageBox.Show("Felary-Injector.exe not found next to the UI. Build the 'Felary Executor Injector' project (Release x64) and copy Felary-Injector.exe + FelaryExecutor.dll here. See INJECTOR.md.", "Felary Executor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(InjectorPath) { UseShellExecute = true } );

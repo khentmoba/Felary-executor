@@ -17,6 +17,7 @@ A Roblox internal script executor — forked from [YuB-X-Public](https://github.
 
 - `Felary Executor Module/` — C++ internal DLL (execution, scheduler, environment, TCP comms)
 - `Felary Executor Interface/` — C# UI (script editor, talks to DLL over `127.0.0.1:6969`)
+- `Felary Executor Injector/` — C++ injector, Stage 1 LoadLibrary (`Felary-Injector.exe`; see `INJECTOR.md` — alts only)
 
 ## Building
 
