@@ -126,7 +126,33 @@ Tool: `Felary Executor Tools/PatternScanner/` (`live_scanner.py` = live process,
 - Added `Offsets::Instance::{ClassDescriptor, ClassName}` (0x18/0x8,
   stable across both dump eras).
 
-## 6. History
+## 6. Layout turn: client lua_State drift + state-hunt results
+
+Vendored (`lstate.h`) vs client (from pcall-twin disassembly):
+
+| Field | Vendored | Client (inferred) | Evidence |
+|---|---|---|---|
+| isactive | +0x6 | +0x6 | boolean writes pre/post `luau_execute` |
+| status | +0x3 | +0x5? | execute checks `[rcx+5]` |
+| nCcalls/baseCcalls (ushort pair) | +0x78/+0x7A | +0x38/+0x3A? | `inc word` vs 200 (`LUAI_MAXCCALLS`) |
+| stacksize (dword) | +0x70 (ENC) | +0x1C? | `movsxd` vs 20000/22500 grow caps |
+| stack-cluster | +0x28..+0x48 | +0x48..+0x78? | top/base-ish r/w, `×16` index math |
+
+State-hunt results (all passive, live target client):
+
+- 5-form VMValue decode sweep (0x0–0xC00) → 350 readable heap decodes.
+- Back-pointer sweep (any T/G/moff) → all hits are intrusive-list
+  topology or object-graph ownership edges. No global→mainthread pair.
+- One mutual pair at SC+0xAC0 (T=0x28860961200, G huge) — no siblings,
+  no trivial getter reads it, likely not a lua_State.
+- 26 code sites read `[reg+0xAC0]`; only one in decrypted code and it's
+  frame-local (`xor rcx,rsp` + call), the rest are ciphertext.
+- Conclusion: state is NOT stored self-contained-decodable, or uses a
+  per-process key (`ptrenckey` exists in `global_State`) — either way the
+  GETTER FUNCTION is required. Next: full `ldo.c` alignment for exact
+  client offsets, then sibling search (threads share one global).
+
+## 7. History
 
 - YuB-X era (`version-ad5d3e2906444472`): all values confirmed against theo's
   archived dump for that version — old dump matches YuB-X hardcodes exactly.
