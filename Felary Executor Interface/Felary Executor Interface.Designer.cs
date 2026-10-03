@@ -1,6 +1,6 @@
-﻿namespace YuB_X_Interface
+﻿namespace FelaryExecutor_Interface
 {
-    partial class YuB_X_Interface
+    partial class FelaryExecutorInterface
     {
         /// <summary>
         /// Required designer variable.
@@ -63,7 +63,7 @@
             this.Inject.UseVisualStyleBackColor = true;
             this.Inject.Click += new System.EventHandler(this.Inject_Click);
             // 
-            // YuB_X_Interface
+            // FelaryExecutorInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,10 +72,10 @@
             this.Controls.Add(this.Execute);
             this.Controls.Add(this.ScriptEditor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "YuB_X_Interface";
+            this.Name = "FelaryExecutorInterface";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "YuB-X-Interface";
-            this.Load += new System.EventHandler(this.YuB_X_Interface_Load);
+            this.Text = "Felary Executor";
+            this.Load += new System.EventHandler(this.FelaryExecutorInterface_Load);
             this.ResumeLayout(false);
 
         }

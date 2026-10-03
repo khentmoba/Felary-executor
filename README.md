@@ -15,10 +15,8 @@ A Roblox internal script executor — forked from [YuB-X-Public](https://github.
 
 ## Structure
 
-- `YuB-X-Module/` — C++ internal DLL (execution, scheduler, environment, TCP comms)
-- `YuB-X-Interface/` — C# UI (script editor, talks to DLL over `127.0.0.1:6969`)
-
-> Project/directory rename to Felary branding is planned — functionality first.
+- `Felary Executor Module/` — C++ internal DLL (execution, scheduler, environment, TCP comms)
+- `Felary Executor Interface/` — C# UI (script editor, talks to DLL over `127.0.0.1:6969`)
 
 ## Building
 
@@ -26,10 +24,10 @@ Requires Visual Studio with the **v145 toolset** + Windows SDK 10.0.
 
 ```powershell
 & "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" `
-  YuB-X-Module/YuB-X-Module.vcxproj -p:Configuration=Release -p:Platform=x64 -m
+  "Felary Executor Module/Felary Executor Module.vcxproj" -p:Configuration=Release -p:Platform=x64 -m
 ```
 
-Output: `YuB-X-Module/x64/Release/Module.dll`
+Output: `Felary Executor Module/x64/Release/FelaryExecutor.dll`
 
 ## Base credit
 

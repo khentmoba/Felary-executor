@@ -3,16 +3,16 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
-namespace YuB_X_Interface
+namespace FelaryExecutor_Interface
 {
-    public partial class YuB_X_Interface : Form
+    public partial class FelaryExecutorInterface : Form
     {
-        public YuB_X_Interface()
+        public FelaryExecutorInterface()
         {
             InitializeComponent();
         }
 
-        private void YuB_X_Interface_Load(object sender, EventArgs e)
+        private void FelaryExecutorInterface_Load(object sender, EventArgs e)
         {
 
         }
@@ -37,17 +37,17 @@ namespace YuB_X_Interface
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to Execute script: " + ex.Message, "YuB-X-Interface", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Failed to Execute script: " + ex.Message, "Felary Executor", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void Inject_Click(object sender, EventArgs e)
         {
-            string InjectorPath = System.IO.Path.Combine(Application.StartupPath, "YuB-X-Injector.exe");
+            string InjectorPath = System.IO.Path.Combine(Application.StartupPath, "Felary-Injector.exe");
 
             if (!System.IO.File.Exists(InjectorPath))
             {
-                MessageBox.Show("Press OK to download the injector, this might take a few seconds", "YuB-X-Interface", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Press OK to download the injector, this might take a few seconds", "Felary Executor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 using (var WebClient = new System.Net.WebClient())
                 {
                     WebClient.DownloadFile("YOUR DOWNLOAD LINK HERE", InjectorPath);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace YuB_X_Interface
+namespace FelaryExecutor_Interface
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace YuB_X_Interface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new YuB_X_Interface());
+            Application.Run(new FelaryExecutorInterface());
         }
     }
 }

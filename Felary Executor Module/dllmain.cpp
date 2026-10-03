@@ -27,7 +27,7 @@ void MainThread()
 			SharedVariables::ExecutionRequests.clear();
 
             TaskScheduler::SetupExploit();
-            TaskScheduler::RequestExecution("print(\"YuB-X-Public successfully loaded\")");
+            TaskScheduler::RequestExecution("print(\"Felary Executor successfully loaded\")");
         }
 
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YuB_X_Interface.Properties
+namespace FelaryExecutorInterface.Properties
 {
 
 
