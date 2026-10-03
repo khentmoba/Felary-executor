@@ -94,7 +94,27 @@ Tool: `Felary Executor Tools/PatternScanner/` (`live_scanner.py` = live process,
   (direct or two-hop via .data descriptors); `"Heartbeat"` xrefs lead to
   generic job/thunk code, not scheduler core.
 
-## 5. History
+## 5. The +0x7F8 resume chain (live, target client)
+
+- Byte-hunt for `LEA reg,[reg+0x7F8]` across live memory: **6 hits**, all in
+  real decrypted code. `ScriptContextToResume = 0x7F8` is corroborated as a
+  live ScriptContext/ExtraSpace offset (holds a thread vector: sites walk
+  `[x+0x10]-[x+8]>>3` = vector size, plus a destructor chain walking
+  `+0x7F8/+0x7F0/+0x7D0...` = ScriptContext teardown).
+- Chain: `0x386FF4D`-func (`lea rcx,[rbx+0x7F8]` + thread fields
+  `[rsi+0x98/0xA0]` + status byte + `inc [rbx+0x7F0]`) calls iterator
+  `0x38719C9` (walks the thread vector, calls per entry) which calls
+  per-thread worker `0x38721E40` — the resume candidate.
+- BLOCKED at homepage: `0x38721E40` lives in the unnamed data section
+  (`0x8B93000` on disk) and is not committed live — the page only decrypts
+  when threads actually wait. Its caller has no direct callers (scheduler
+  dispatches via pointers).
+- `RequireBypass` 0x9E1: ZERO byte accesses (mov/test/movzx forms) in all
+  live memory — offset moved or client never touches it. Must re-derive.
+- NEXT: re-run the full suite with a game loaded (yielded threads exist →
+  resume chain decrypts). Just join any game and say `scan now`.
+
+## 6. History
 
 - YuB-X era (`version-ad5d3e2906444472`): all values confirmed against theo's
   archived dump for that version — old dump matches YuB-X hardcodes exactly.

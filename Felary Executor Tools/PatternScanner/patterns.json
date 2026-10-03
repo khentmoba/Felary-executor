@@ -237,6 +237,56 @@
     ".text"
    ],
    "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "openStateImpl",
+   "type": "code_pattern",
+   "status": "rbxstu-round2",
+   "pattern": "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 41 8B F1 45 8B E0 4C 8B EA 4C 8B F9 33 FF 89 7C 24 ? 33 D2 48 8D 0D ? ? ? ? E8 ? ? ? ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig round 2"
+  },
+  {
+   "name": "task_spawn",
+   "type": "code_pattern",
+   "status": "rbxstu-round2",
+   "pattern": "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B F1 33 FF 48 89 7C 24 ? 4C 8D 4C 24 ? 4C 8D 05 ? ? ? ? 33 D2 E8 ? ? ? ? 8B D8 48 8B CE E8 ? ? ? ? 44 8B CB 4C 8D 44 24 ? 48 8D 54 24 ? 48 8B C8 E8 ? ? ? ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig round 2"
+  },
+  {
+   "name": "task_wait",
+   "type": "code_pattern",
+   "status": "rbxstu-round2",
+   "pattern": "48 89 5C 24 ? 55 56 57 48 81 EC ? ? ? ? 0F 29 74 24 ? 0F 29 7C 24 ? 48 8B D9 E8 ? ? ? ? 85 C0 0F 84 BE 01 00 ? 0F 57 FF 0F 57 D2 BA ? ? ? ? 48 8B CB E8 ? ? ? ? 0F 28 F0 33 FF 66 0F 2F F8 77 4D",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig round 2"
+  },
+  {
+   "name": "Console_StandardOut",
+   "type": "code_pattern",
+   "status": "rbxstu-round2",
+   "pattern": "48 8B C4 48 89 50 ? 4C 89 40 ? 4C 89 48 ? 53 48 83 EC ? 8B D9 4C 8D 40 ? 48 8D 48 ? E8 ? ? ? ? 90 33 C0 48 89 44 24 ? 48 C7 44 24 ? ? ? ? ? 48 89 44 24 ? 88 44 24 ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig round 2"
+  },
+  {
+   "name": "ProximityPrompt_trigger",
+   "type": "code_pattern",
+   "status": "rbxstu-round2",
+   "pattern": "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 4C 8B F9 E8 ? ? ? ? 48 8B F8 48 85 C0 0F 84 C6 02 00 ? 48 8B 50 ? 48 85 D2 0F 84 D4 02 00 ? 8B 42 ? 85 C0 0F 84 C9 02 00 ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig round 2"
   }
  ]
 }
