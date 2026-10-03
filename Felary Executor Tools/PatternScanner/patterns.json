@@ -96,6 +96,147 @@
     ".text"
    ],
    "source": "RbxStu-V2 RBX_ScriptContext_getDataModel (short Studio sig)"
+  },
+  {
+   "name": "Luau_Execute_target",
+   "type": "code_pattern",
+   "status": "confirmed-target",
+   "pattern": "80 79 05 00 0F 85 ? ? ? ? E9 ? ? ? ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "drift-vs-encryption distinguisher (offset byte wildcarded)",
+   "note": "target version-02c37bc51a384b8f = REBASE(0x2681D50), offset byte 06->05"
+  },
+  {
+   "name": "luaD_throw",
+   "type": "code_pattern",
+   "status": "test",
+   "pattern": "48 83 EC ? 44 8B C2 48 8B D1 48 8D 4C 24 ? E8 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 4C 24 ? E8 ? ? ? ? CC CC CC",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 _luaD_throw (if this hits but execute doesnt, execute drifted)"
+  },
+  {
+   "name": "lua_pushvalue",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 5C 24 ? 57 48 83 EC ? F6 41 01 04 48 8B D9 48 63 FA 74 0C 4C 8D 41 ? 48 8B D1 E8 ? ? ? ? 85 FF 7E 24 48 8B 43 ? 48 8B CF 48 C1 E1 ? 48 83 C0 ? 48 03 C1 48 8B 4B ? 48 3B C1 72 2F 48 8D 05 ? ? ? ? EB 26 81 FF F0 D8 FF FF 7E 10",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "luaE_newthread",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 5C 24 ? 57 48 83 EC ? 44 0F B6 41 ? BA ? ? ? ? 48 8B F9 E8 ? ? ? ? 48 8B 57 ? 48 8B D8 44 0F B6 42 ? C6 00 ? 41 80 E0 ? 44 88 40 ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "luaC_step",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 8B 59 ? B8 ? ? ? ? 0F B6 F2 0F 29 74 24 ? 4C 8B F1 44 8B 43 ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "luaD_rawrununprotected",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 4C 24 ? 48 83 EC ? 48 8B C2 49 8B D0 FF D0 33 C0 EB 04 8B 44 24 48 48 83 C4 ? C3",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "luaH_new",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 41 8B F0 8B EA 44 0F B6 41 ? BA ? ? ? ? 48 8B F9 E8 ? ? ? ? 4C 8B 4F ? 48 8B D8 45 0F B6 51 ? C6 00 ? 41 80 E2 ? 44 88 50 ? 44 0F B6 47 ? 44 88 40 ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "freeblock",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "4C 8B 51 ? 49 83 E8 ? 44 8B CA 4C 8B D9 49 8B 10 48 83 7A 28 00 75 22 83 7A 30 00 7D 1C 49 63 C1",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "luaV_settable",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 5C 24 ? 48 89 6C 24 ? 56 41 54 41 57 48 83 EC ? 48 89 7C 24 ? 4D 8B E1 4C 89 74 24 ? 4D 8B F8 48 8B F2 48 8B D9 33 ED 0F 1F 44 00 00 83 7E 0C 06 75 4C",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "luaV_gettable",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 5C 24 ? 55 41 54 41 55 41 56 41 57 48 83 EC ? 48 89 74 24 ? 4C 8D 2D ? ? ? ? 48 89 7C 24 ? 4D 8B E1 4D 8B F8 48 8B DA 4C 8B F1 33 ED 83 7B 0C 06 75 76",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "luau_load_rbx",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 5C 24 ? 48 89 4C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 49 8B E9 4D 8B F0 48 8B FA 4C 8B F9 45 0F B6 28 44 88 6C 24 ? BE ? ? ? ? 45 84 ED 75 4C",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "LuaVM_Load",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D ? ? ? 48 81 EC ? ? ? ? 4D 8B E1 49 8B D8 4C 8B EA",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "ExtraSpace_init",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 4C 24 ? 53 55 56 57 41 56 41 57 48 83 EC ? 48 8B D9 45 33 FF 4C 89 39 4C 89 79 ? 4C 89 79 ? 4C 89 79 ? 4C 89 79 ? 48 8B 42 ? 48 85 C0 74 04 F0 FF 40 ? 48 8B 42 ? 48 89 41 ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
+  },
+  {
+   "name": "scriptStart",
+   "type": "code_pattern",
+   "status": "rbxstu-landmark",
+   "pattern": "48 89 54 24 ? 48 89 4C 24 ? 53 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 4C 8B ? 4C 8B ? 0F 57 C0 66 0F 7F 44 24 ? 48 8B 42 ? 48 85 C0 74 08 F0 FF 40 ? 48 8B 42 ?",
+   "sections": [
+    ".text"
+   ],
+   "source": "RbxStu-V2 Studio sig, testing transfer to Player"
   }
  ]
 }

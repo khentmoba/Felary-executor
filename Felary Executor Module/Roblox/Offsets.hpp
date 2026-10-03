@@ -40,8 +40,10 @@ namespace Offsets
 
     namespace Luau
     {
-        // [STALE] see above.
-        const uintptr_t Luau_Execute = REBASE(0x4449200);
+        // [OK-target] confirmed live on version-02c37bc51a384b8f (1 hit,
+        // function head changed 80 79 06 00 -> 80 79 05 00). Unused in code.
+        const uintptr_t Luau_Execute = REBASE(0x2681D50);
+        // [STALE] see above. Both unused in code — no action needed.
         const uintptr_t LuaO_NilObject = REBASE(0x6688740);
         const uintptr_t LuaH_DummyNode = REBASE(0x66885E8);
     }

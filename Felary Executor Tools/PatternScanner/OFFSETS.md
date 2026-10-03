@@ -71,7 +71,30 @@ Tool: `Felary Executor Tools/PatternScanner/` (`live_scanner.py` = live process,
   ScriptContext/ExtraSpace region and compare against expectations before
   flipping `kOffsetsVerified`.
 
-## 4. History
+## 4. Ghidra pipeline (new)
+
+- Ghidra 12.1.3 headless works with JDK 21 (Android Studio JBR).
+  Project: `Felary Executor Tools/Ghidra/work/felary` (gitignored),
+  scripts in `Ghidra/scripts/` (committed). You can also open the same
+  project in Ghidra GUI — program `/dumped.exe`.
+- `dumped.exe`: full decrypted dump of the TARGET client via the sebastian
+  `NtFlushInstructionCache` trick (`tools-sebastian/`, built with MSVC +
+  `NOMINMAX` fix). 50 MB of 102 MB hot pages decrypted, 0 dead pages.
+- `.py` Ghidra scripts do NOT run headless (needs PyGhidra); use `.java`.
+  `DecompileAt.java` hits a decompiler-classpath issue headless — parked
+  until candidates exist (capstone already covers disassembly needs).
+- Confirmed on target: `Luau_Execute = REBASE(0x2681D50)`,
+  `luaD_throw = REBASE(0x26520B0)`. The `06 -> 05` byte means a Luau
+  struct field moved — relevant when syncing vendored Luau structs.
+- RbxStu landmark sweep on target: only `luaD_throw` transfers; all other
+  Studio sigs (pushvalue, newthread, step, H_new, freeblock, settable,
+  gettable, luau_load, LuaVM_Load, ExtraSpace_init, scriptStart,
+  getGlobalState, resume, task_defer, getDataModel) score 0 on Player.
+- String-chasing exhausted: `"$Script"`/job-name strings have no LEA xrefs
+  (direct or two-hop via .data descriptors); `"Heartbeat"` xrefs lead to
+  generic job/thunk code, not scheduler core.
+
+## 5. History
 
 - YuB-X era (`version-ad5d3e2906444472`): all values confirmed against theo's
   archived dump for that version — old dump matches YuB-X hardcodes exactly.

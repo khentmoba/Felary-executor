@@ -4,7 +4,12 @@ Win32/
 Debug/
 Release/
 *.dll
-*.pdb
+*.exe
+*.bin
+dumped*.exe
+*.dump
+*.dmp
+*.log
 *.ipdb
 *.iobj
 *.tlog
