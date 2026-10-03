@@ -26,3 +26,4 @@ dumped*.exe
 # OS
 Desktop.ini
 Thumbs.db
+__pycache__/
