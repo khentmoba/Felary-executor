@@ -152,7 +152,18 @@ State-hunt results (all passive, live target client):
   GETTER FUNCTION is required. Next: full `ldo.c` alignment for exact
   client offsets, then sibling search (threads share one global).
 
-## 7. History
+## 7. Align turn: decompiler online + background analysis
+
+- Fixed `DecompileAt.java` (`ghidra.app.decompiler`, not `decompile`).
+  Decompiler proven on dumped2.exe (fresh in-game dump: 69 MB/102 MB hot).
+- `nCcalls @ +0x38` CONFIRMED by decompiler (`+1`, `if (199 < ...)`).
+  Client lua_State is reordered vs vendored (isactive +0x6 same).
+- Full Ghidra analysis running in background on dumped2.exe
+  (`Ghidra/work/analysis.log`, project `felary`) — enables xrefs and
+  call-graph navigation for the getter/table hunt next.
+- Decompiled pcall-twin saved at `Ghidra/work/decomp_2699CF3.txt`.
+
+## 8. History
 
 - YuB-X era (`version-ad5d3e2906444472`): all values confirmed against theo's
   archived dump for that version — old dump matches YuB-X hardcodes exactly.

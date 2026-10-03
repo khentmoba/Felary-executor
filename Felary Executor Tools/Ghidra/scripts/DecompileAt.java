@@ -2,8 +2,8 @@
 // Usage (from the Ghidra/work dir):
 //   analyzeHeadless.bat . felary -process dumped.exe -noanalysis
 //       -scriptPath <scripts dir> -postScript DecompileAt.java 0x2681D50
-import ghidra.app.decompile.DecompInterface;
-import ghidra.app.decompile.DecompileResults;
+import ghidra.app.decompiler.DecompInterface;
+import ghidra.app.decompiler.DecompileResults;
 import ghidra.app.script.GhidraScript;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.listing.Function;
